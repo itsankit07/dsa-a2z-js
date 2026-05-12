@@ -8,7 +8,7 @@
 // ─────────────────────────────────────────────
 // APPROACH 1 — Brute Force (Loop & Count)
 // Repeatedly divide by 10 until number becomes 0
-// Time: O(d) | Space: O(1)
+// Time: O(n) | Space: O(1)
 // ─────────────────────────────────────────────
 
 function countDigitsBrute(n) {
@@ -25,7 +25,7 @@ function countDigitsBrute(n) {
 // ─────────────────────────────────────────────
 // APPROACH 2 — Better (String Conversion)
 // Convert to string and return its length
-// Time: O(d) | Space: O(d) — string is created
+// Time: O(n) | Space: O(n) — string is created
 // ─────────────────────────────────────────────
 
 function countDigitsBetter(n) {
