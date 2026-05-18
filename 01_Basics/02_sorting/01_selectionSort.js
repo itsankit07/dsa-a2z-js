@@ -18,67 +18,43 @@
  */
 
 // ─────────────────────────────────────────────
-// APPROACH 1 — Brute Force
-// For each position, collect unsorted elements,
-// find min, rebuild array — not in-place
-// Time: O(n²) | Space: O(n)
-// ─────────────────────────────────────────────
-function selectionSortBrute(arr) {
-  const result = [...arr];
-  const sorted = [];
-
-  while (result.length) {
-    const minVal = Math.min(...result);
-    sorted.push(minVal);
-    result.splice(result.indexOf(minVal), 1);
-  }
-
-  return sorted;
-}
-
-// ─────────────────────────────────────────────
-// APPROACH 2 — Optimal (In-place Selection Sort)
 // For each index i, find min in remaining unsorted
 // portion [i+1...n-1] and swap with index i
-// Time: O(n²) | Space: O(1)
+// Time: O(n²) for best, average and worst cases | Space: O(1)
 // ─────────────────────────────────────────────
-function selectionSortOptimal(arr) {
-  const result = [...arr]; // copy to avoid mutating original
-  const n = result.length;
+function selectionSort(arr) {
+  const n = arr.length;
 
   for (let i = 0; i < n - 1; i++) {
     let minIdx = i;
-
     // find minimum element in unsorted portion
     for (let j = i + 1; j < n; j++) {
-      if (result[j] < result[minIdx]) {
+      if (arr[j] < arr[minIdx]) {
         minIdx = j;
       }
     }
-
     // swap only if a smaller element was found
     if (minIdx !== i) {
-      [result[i], result[minIdx]] = [result[minIdx], result[i]];
+      [arr[i], arr[minIdx]] = [arr[minIdx], arr[i]];
     }
   }
 
-  return result;
+  return arr;
 }
 
 // ─────────────────────────────────────────────
 // TEST CASES
 // ─────────────────────────────────────────────
 const testCases = [
-  [13, 46, 24, 52, 20, 9],   // regular case
-  [1],                        // single element
-  [1, 2, 3, 4, 5],           // already sorted
-  [5, 4, 3, 2, 1],           // reverse sorted
-  [3, 3, 2, 1, 2],           // duplicates
-  [],                         // empty array
+  [13, 46, 24, 52, 20, 9], // regular case
+  [1], // single element
+  [1, 2, 3, 4, 5], // already sorted
+  [5, 4, 3, 2, 1], // reverse sorted
+  [3, 3, 2, 1, 2], // duplicates
+  [], // empty array
 ];
 
-testCases.forEach(arr => {
+testCases.forEach((arr) => {
   console.log(`Input:   [${arr}]`);
-  console.log(`  Brute:   [${selectionSortBrute(arr)}]`);
-  console.log(`  Optimal: [${selectionSortOptimal(arr)}]`);
+  console.log(`Sorted Array : [${selectionSort(arr)}]`);
 });
