@@ -1,6 +1,6 @@
 /**
  * Problem: Given an N * N 2D integer matrix, rotate the matrix by 90 degrees clockwise.
- * Link: https://leetcode.com/problems/rotate-image/ , https://www.geeksforgeeks.org/rotate-matrix-by-90-degree-in-clockwise-direction/
+ * Link: https://leetcode.com/problems/rotate-image/ , https://www.geeksforgeeks.org/problems/rotate-by-90-degree-1587115621/1
  * Difficulty: Medium
  * Topic: Array / Medium
  */
